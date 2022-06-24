@@ -15,5 +15,5 @@ var commonPrefix = function(str1, str2) {
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
-    return strs.slice(1, strs.length).reduce((prev, next) => commonPrefix(prev, next), strs[0])
+    return strs.reduce((prev, next) => commonPrefix(prev, next), strs[0])
 };
