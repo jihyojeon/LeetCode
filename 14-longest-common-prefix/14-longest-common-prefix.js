@@ -1,20 +1,14 @@
 var commonPrefix = function(str1, str2) {
     var longest = '';
-    var startIndex = 0;
-    var i = 0
-    // for (let i = 0; i < str1.length+1; i++) {
-        for (let j = i; j < str1.length+1 ; j++) {
-            var cand = str1.slice(i, j);
-            console.log({str1, str2, longest, i, cand})
-            if (str2.slice(i, j) === cand) {
-                if (cand.length > longest.length) {
-                    startIndex = i;
-                    longest = cand;
-                }
+    for (let j = 0; j < str1.length+1 ; j++) {
+        var cand = str1.slice(0, j);
+        if (str2.slice(0, j) === cand) {
+            if (cand.length > longest.length) {
+                longest = cand;
             }
         }
-    // }
-    return `${'_'.repeat(startIndex)}${longest}`;
+    }
+    return `${longest}`;
 }
 
 /**
