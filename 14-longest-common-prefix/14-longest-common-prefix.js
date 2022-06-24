@@ -1,14 +1,13 @@
 var commonPrefix = function(str1, str2) {
     var longest = '';
-    for (let j = 0; j < str1.length+1 ; j++) {
-        var cand = str1.slice(0, j);
-        if (str2.slice(0, j) === cand) {
-            if (cand.length > longest.length) {
-                longest = cand;
-            }
+    
+    str1.split('').forEach((el, i) => {
+        if (str1.slice(0, i+1) === str2.slice(0, i+1)) {
+            longest += el;
         }
-    }
-    return `${longest}`;
+    })
+    
+    return longest;
 }
 
 /**
