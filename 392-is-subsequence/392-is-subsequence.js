@@ -5,11 +5,10 @@
  */
 var isSubsequence = function(s, t) {
     var result = true;
-    var nextT = t;
     for (let i = 0; i < s.length; i++) {
-        var j = nextT.indexOf(s[i]);
+        var j = t.indexOf(s[i]);
         if (j >= 0) {
-            nextT = nextT.slice(j+1);
+            t = t.slice(j+1);
         } else {
             result = false;
             break;
