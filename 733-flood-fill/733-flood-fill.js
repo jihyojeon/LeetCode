@@ -19,11 +19,13 @@ var floodFill = function(image, sr, sc, color) {
             image[x][y] !== prevColor
         ) {
             return;
+        } else {
+            image[x][y] = color;
+            neighbours.forEach(coor => {
+                fill(x+coor[0], y+coor[1]);
+            })
         }
-        image[x][y] = color;
-        neighbours.forEach(coor => {
-            fill(x+coor[0], y+coor[1]);
-        })
+        
     };
     
 	fill(sr, sc);
