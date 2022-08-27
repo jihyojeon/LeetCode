@@ -4,23 +4,17 @@
  * @return {number}
  */
 function search(nums, target) {
-    const numsLen = nums.length;
-    const midIndex = Math.floor(numsLen/2);
-    if (numsLen === 0) {
-        return -1
-    }
-    if (target === nums[midIndex]) {
-        return midIndex;
-    }
-    if (target > nums[midIndex]) {
-        if (search(nums.slice(midIndex+1), target) === -1) {
-            return -1
+    let right = nums.length - 1;
+    let left = 0;
+    while (left <= right) {
+        const pivot = Math.floor((right + left)/2);
+        if (nums[pivot] === target) {
+            return pivot
+        } else if (nums[pivot] < target) {
+            left = pivot + 1
+        } else {
+            right = pivot - 1
         }
-        return midIndex + 1 + search(nums.slice(midIndex+1), target);
-    } else {
-        if (search(nums.slice(0, midIndex), target) === -1) {
-            return -1
-        }
-        return search(nums.slice(0, midIndex), target);
     }
+    return -1
 };
