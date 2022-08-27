@@ -13,7 +13,7 @@ var floodFill = function(image, sr, sc, color) {
     }
     const fill = (x, y) => {
         if (
-            !image[x] ||
+            image[x] === undefined ||
             image[x][y] === undefined ||
             image[x][y] === color ||
             image[x][y] !== prevColor
