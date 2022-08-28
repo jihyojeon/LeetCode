@@ -19,7 +19,7 @@ var hasCycle = function(head) {
     let winner = head;
     let loser = head;
     
-    while (winner.next && winner.next.next) {
+    while (winner.next?.next) {
         winner = winner.next.next;
         loser = loser.next;
         if (winner === loser) {
