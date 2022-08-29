@@ -10,6 +10,6 @@ var climbStairs = function(n) {
         climb.push(climb[i-1] + climb[i-2]);
         i += 1;
     }
-    console.log(n, climb)
+    
     return climb[n]
 };
