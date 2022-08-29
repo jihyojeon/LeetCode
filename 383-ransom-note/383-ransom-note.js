@@ -4,19 +4,30 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    const m = magazine.split('');
-    const r = ransomNote.split('');
-    let l = r.length;
-    
-    for (let i=0 ; i<r.length; i++) {
-        for (let j=0; j<m.length; j++) {
-            if (r[i] === m[j]) {
-                m[j] = '_';
-                l -= 1;
-                break;
-            }
+    const m = {};
+    magazine.split('').forEach(l => {
+        if (m[l]) {
+            m[l] += 1
+        } else {
+            m[l] = 1
         }
+    });
+    const r = {};
+    ransomNote.split('').forEach(l => {
+        if (r[l]) {
+            r[l] += 1
+        } else {
+            r[l] = 1
+        }
+    });
+
+    const keys = Object.keys(r);
+    for (let i=0; i<keys.length; i++) {
+        if (!m[keys[i]] || r[keys[i]] > m[keys[i]]) {
+            return false
+        }
+        
     }
+    return true
     
-    return l === 0? true: false
  };
