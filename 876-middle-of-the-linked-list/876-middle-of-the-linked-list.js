@@ -10,17 +10,14 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    var length = 1;
-    var thisNode = head;
-    while (thisNode.next) {
-        length += 1;
-        thisNode = thisNode.next;
+    let center = head;
+    let i=1;
+    while(head) {
+        i += 1;
+        if (i%2 === 1) {
+            center = center.next;
+        }
+        head = head.next;
     }
-    var center = Math.floor(length/2);
-    var centerNode = head;
-    while (center > 0) {
-        center -= 1;
-        centerNode = centerNode.next;
-    }
-    return centerNode
+    return center
 };
