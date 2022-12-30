@@ -24,7 +24,7 @@ var twoSum = function(nums, target) {
     for (let i=0; i< nums.length; i++) {
         const num = nums[i];
         const otherNum = target - num;
-        if (Object.keys(numsMap).includes(`${otherNum}`)) {
+        if (numsMap[`${otherNum}`] != undefined) {
             return [numsMap[`${otherNum}`], i];
         } else {
             numsMap[`${num}`] = i;
